@@ -10,7 +10,7 @@ class OrcaCli < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "http://github.com/orcasecurity/orca-cli/releases/download/1.3.2/orca-cli_1.3.2_darwin_amd64.tar.gz"
-      sha256 "83fde68660359795d0ed6928487c1f3dcb600cc6f9ff657e9c8404c5fb910d3e"
+      sha256 "3c9b6e1b8471cb2813235b1321929ac2feec5dad463f74d2ae741fc0021a993b"
 
       def install
         bin.install "orca-cli"
@@ -18,7 +18,7 @@ class OrcaCli < Formula
     end
     if Hardware::CPU.arm?
       url "http://github.com/orcasecurity/orca-cli/releases/download/1.3.2/orca-cli_1.3.2_darwin_arm64.tar.gz"
-      sha256 "fb97e056b5983d0d4d965e0f275b2092bb5d9e3516e4e8aa0824e44248fe3d93"
+      sha256 "dfc8518a9c38df4a07606b4052d797b7976de4a216c1d8de49512dfa7e6fa411"
 
       def install
         bin.install "orca-cli"
@@ -29,7 +29,7 @@ class OrcaCli < Formula
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "http://github.com/orcasecurity/orca-cli/releases/download/1.3.2/orca-cli_1.3.2_linux_arm64.tar.gz"
-      sha256 "67533c6dc4a25b56d475c7afa6b9aaa86fdf22a0e8a7e8dd9b5ee12fb0eda3c3"
+      sha256 "9c1540ade9bc755e3b3087790c97d184539136ab3f48d898ff260081cf7c1fe5"
 
       def install
         bin.install "orca-cli"
@@ -37,7 +37,7 @@ class OrcaCli < Formula
     end
     if Hardware::CPU.intel?
       url "http://github.com/orcasecurity/orca-cli/releases/download/1.3.2/orca-cli_1.3.2_linux_amd64.tar.gz"
-      sha256 "a07e4fb2a342ba8c5b5f3e823979f33de3e0b201ca2a928ddc2a322d1735713f"
+      sha256 "73a4c58d7ba45dc81b094fd15ff3135bd2285e248c2ae311b9ea12eddc9ac974"
 
       def install
         bin.install "orca-cli"
