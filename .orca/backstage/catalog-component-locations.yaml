@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: catalog-locations-homebrew-orca-cli
+  labels:
+    repository: homebrew-orca-cli
+  annotations:
+    github.com/project-slug: orcasecurity/homebrew-orca-cli
+spec:
+  presence: optional
+  targets: []
