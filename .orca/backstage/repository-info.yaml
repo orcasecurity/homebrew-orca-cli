@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: homebrew-orca-cli
+  description: Repository for homebrew-orca-cli code.
+  labels:
+    orca.security/is-production: "true"
+    orca.security/repo-is-fork: "false"
+    orca.security/repo-visibility: public
+  annotations:
+    github.com/project-slug: orcasecurity/homebrew-orca-cli
+    github.com/team-slug: orcasecurity/shiftleft
+    orca.security/jira-project-key: CICD
+    orca.security/jira-project-name: Shift Left - SLC
+    orca.security/repo-created-at: "2022-08-28T12:47:54Z"
+    orca.security/repo-default-branch: master
+    orca.security/repo-main-language: Ruby
+  links:
+    - url: https://github.com/orcasecurity/homebrew-orca-cli
+      title: Source Code
+      icon: github
+      type: url
+    - url: https://orcasecurity.atlassian.net/jira/software/c/projects/CICD/boards/103
+      title: Jira
+      icon: grading
+      type: url
+spec:
+  type: repository
+  lifecycle: production
+  owner: shiftleft
