@@ -1,0 +1,53 @@
+name: Lint GitHub Actions
+
+on: # yamllint disable-line rule:truthy
+  pull_request:
+    paths:
+      # single * matches any char other than `/`; ** matches any char. Reference:
+      # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
+      - ".github/**"
+
+jobs:
+  actionlint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github
+
+      - name: Download actionlint
+        run: |
+          bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+        shell: bash
+
+      - name: Get changed files
+        id: changedfiles
+        run: |
+          added_modified_files=$(git diff --diff-filter=AM --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}" | xargs)
+          echo "added_modified=${added_modified_files}" >> "$GITHUB_OUTPUT"
+
+      # See https://github.com/rhysd/actionlint/blob/main/docs/usage.md#problem-matchers
+      - name: Check changed workflow files
+        run: |
+          echo "::add-matcher::.github/actionlint-matcher.json"
+          all_changed_files="${{ steps.changedfiles.outputs.added_modified }}"
+          for file in $all_changed_files; do
+            if [[ "$file" == ".github/workflows/sched-global-updater.yaml" ]]; then
+              continue
+            fi
+            if [[ "$file" == .github/workflows/*.y*ml ]]; then
+              echo Checking "$file"
+              ./actionlint -no-color "$file"
+              echo "$file" passed actionlint
+            fi
+          done
+        shell: bash
+
+      - name: Check all files, not only changed ones, print output as text and don't fail the build
+        if: success() || failure()
+        run: |
+          ./actionlint || echo "actionlint failed, but we ignore it because we are checking all files, not only changed ones"
+          ./actionlint -format 'Total issues: {{len .}}' || echo "actionlint failed, but we ignore it because we are checking all files, not only changed ones"
+        shell: bash
