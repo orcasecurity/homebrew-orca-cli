@@ -1,0 +1,23 @@
+self-hosted-runner:
+  # Labels of self-hosted runner in array of strings.
+  labels:
+    - "gha-rss-c4r16s100"
+    - "rss-c1r2-eks"
+    - "rss-c2r2-dind-c2r14s100-eks"
+    - "rss-c2r8-eks"
+    - "rss-c4r8-arm64-eks"
+    - "rss-c4r8-eks"
+    - "rss-c8r16-eks"
+    - "runner-c1r2"
+    - "runner-c2r8"
+    - "runner-c8r16"
+    - "runner-c8r16-on-demand"
+    - "ubuntu-latest-large"
+    - "ubuntu-orca-arm64-c4r8"
+    - "ubuntu-orca-c1r2"
+    - "ubuntu-orca-c2r8"
+
+# Configuration variables in array of strings defined in your repository or
+# organization. `null` means disabling configuration variables check.
+# Empty array means no configuration variable is allowed.
+config-variables: null
