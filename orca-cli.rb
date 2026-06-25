@@ -5,20 +5,20 @@
 class OrcaCli < Formula
   desc ""
   homepage ""
-  version "1.111.1"
+  version "1.111.2"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "http://github.com/orcasecurity/orca-cli/releases/download/1.111.1/orca-cli_1.111.1_darwin_arm64.tar.gz"
-      sha256 "e35f705093dde5760a3dbd8a46a14f827db2e3faf23f4b990bcfdc50c5dd9ee2"
+      url "http://github.com/orcasecurity/orca-cli/releases/download/1.111.2/orca-cli_1.111.2_darwin_arm64.tar.gz"
+      sha256 "4c72481ef98bdb8d1c639c0feb27c2621071bef4fdf25fb54e50cfc7b60ab7c9"
 
       def install
         bin.install "orca-cli"
       end
     end
     if Hardware::CPU.intel?
-      url "http://github.com/orcasecurity/orca-cli/releases/download/1.111.1/orca-cli_1.111.1_darwin_amd64.tar.gz"
-      sha256 "5ed21c787273315cc5e0fdc5d91560835db9d1b1a13f54d6fde9cb384bea84d7"
+      url "http://github.com/orcasecurity/orca-cli/releases/download/1.111.2/orca-cli_1.111.2_darwin_amd64.tar.gz"
+      sha256 "65e4ed6b589a1c2684303f49b8d8c3ad5de747337d051282985fee356c75f254"
 
       def install
         bin.install "orca-cli"
@@ -28,16 +28,16 @@ class OrcaCli < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "http://github.com/orcasecurity/orca-cli/releases/download/1.111.1/orca-cli_1.111.1_linux_arm64.tar.gz"
-      sha256 "75dbcc284242ca47bd44ce6403390ab55a4d6440f2a6792919f994cd5150bf00"
+      url "http://github.com/orcasecurity/orca-cli/releases/download/1.111.2/orca-cli_1.111.2_linux_arm64.tar.gz"
+      sha256 "4a833398c062c02996c3a12333f42e5222bcfc3c53756668dc2ebd05101c04b0"
 
       def install
         bin.install "orca-cli"
       end
     end
     if Hardware::CPU.intel?
-      url "http://github.com/orcasecurity/orca-cli/releases/download/1.111.1/orca-cli_1.111.1_linux_amd64.tar.gz"
-      sha256 "9703242e0089ffd625e3f4714aa2d5e33f53eb6750c62cef81bfb7290b350e19"
+      url "http://github.com/orcasecurity/orca-cli/releases/download/1.111.2/orca-cli_1.111.2_linux_amd64.tar.gz"
+      sha256 "4773a9b46c5cd7cc637a5f5eef50086f788037db81b6c619d4d7dbe006e70969"
 
       def install
         bin.install "orca-cli"
